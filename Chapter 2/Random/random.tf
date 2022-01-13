@@ -7,6 +7,6 @@ terraform {
 }
 
 resource "random_string" "random" {
-    length = 5
-    special = false
+    length = 10
+    special = true
 }
