@@ -7,5 +7,5 @@ terraform {
 }
 
 resource "random_string" "random" {
-    length = 8
+    length = 5
 }
