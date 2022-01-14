@@ -11,3 +11,7 @@ data "archive_file" "zipfile" {
     source_file = "data_backup/data.txt"
     output_path = "backup.zip"
 }
+
+output "fileZip" {
+    value = "File zipped"
+}
