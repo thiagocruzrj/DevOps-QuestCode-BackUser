@@ -8,8 +8,8 @@ terraform {
 
 data "archive_file" "zipfile" {
     type = "zip"
-    source_file = "data_backup/data.txt"
-    output_path = "backup.zip"
+    source_dir = "data_backup"
+    output_path = "backupFull.zip"
 }
 
 output "fileZip" {
