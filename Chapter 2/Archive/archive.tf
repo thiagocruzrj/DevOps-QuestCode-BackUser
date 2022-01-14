@@ -4,7 +4,7 @@ terraform {
       source = "hashicorp/archive"
     }
     random = {
-      source = "rashicorp/random"
+      source = "hashicorp/random"
     }
   }
 }
