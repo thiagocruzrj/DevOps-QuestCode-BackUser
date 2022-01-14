@@ -21,7 +21,7 @@ data "archive_file" "zipfile" {
 }
 
 output "fileZip" {
-  value = data.archive_file.zipfile.output_size
+  value = random_string.random.result
 }
 
 output "random_string"{
