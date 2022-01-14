@@ -13,5 +13,5 @@ data "archive_file" "zipfile" {
 }
 
 output "fileZip" {
-    value = "File zipped"
+    value = data.archive_file.zipfile.output_size
 }
