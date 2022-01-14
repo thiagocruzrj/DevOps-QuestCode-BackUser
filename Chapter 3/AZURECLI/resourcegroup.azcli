@@ -1,2 +1,11 @@
 # verifying CLI version
 az version
+
+# login on our Azzure account
+az login
+
+# Creating resource group with VS Code and CLI
+az group create --location brazilsouth --name rgazureclivscode
+
+# Excluding resource group with VS Code and CLI
+az group delete --name rgazureclivscode
