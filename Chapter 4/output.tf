@@ -1,3 +1,3 @@
 output "vnetname" {
-    value = "${azurerm_virtual_network.vnet}"
+    value = "${azurerm_virtual_network.vnet.name}"
 }
