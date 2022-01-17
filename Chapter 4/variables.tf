@@ -1,3 +1,9 @@
+variable "name-rg" {
+    type = string
+    description = "Resource group name"
+    default = "rg-variables"
+}
+
 variable "location" {
     type = string
     description = "Locale of Azure resources. Ex: brazilsouth"
@@ -11,4 +17,9 @@ variable "tags"{
         environment = "development"
         responsable = "Thiago Cruz"
     }
+}
+
+variable "vnetaddresses"{
+    type = list
+    default = [ "10.0.0.0/16", "192.168.0.0.0/16"]
 }
