@@ -7,7 +7,7 @@ variable "name-rg" {
 variable "location" {
     type = string
     description = "Locale of Azure resources. Ex: brazilsouth"
-    default = "eastus"
+    //default = "eastus"
 }
 
 variable "tags"{
