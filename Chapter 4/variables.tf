@@ -21,5 +21,5 @@ variable "tags"{
 
 variable "vnetaddresses"{
     type = list
-    default = [ "10.0.0.0/16", "192.168.0.0.0/16"]
+    default = [ "10.0.0.0/16", "192.168.0.0/16"]
 }
