@@ -5,8 +5,9 @@ provider "azurerm"{
 }
 
 resource "azurerm_resource_group" "group-resource-chapter5"{
+    count = 6
     location = "brazilsouth"
-    name = "rg-terraform-chp5"
+    name = "rg-terraform-chp5-${count.index}"
     tags = {
         data = formatdate("DD MM YYYY hh:mm ZZZ", timestamp())
         environment = lower("Homologação")
@@ -17,13 +18,13 @@ resource "azurerm_resource_group" "group-resource-chapter5"{
 
 variable "vnetips" {
     type = list
-    default = ["10.0.0.8/16"]
+    default = ["10.0.0.0/8"]
 }
 
 resource "azurerm_virtual_network" "vnet"{
     name = "vnetazuretraining"
     location = "brazilsouth"
-    resource_group_name = "rg-terraform-chp5"
+    resource_group_name = "rg-terraform-chp5-1"
     address_space = length(var.vnetips) == 0 ? ["10.0.0.0/16", "192.168.0.0/16"] : var.vnetips
 }
 
