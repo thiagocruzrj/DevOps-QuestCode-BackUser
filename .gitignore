@@ -8,3 +8,4 @@ Chapter 6/Blobstorage/.terraform/providers/registry.terraform.io/hashicorp/azure
 Chapter 7/dev/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
 Chapter 7/prod/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
 Chapter 7/test/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
+Chapter 7/OrganizedByTFVars/infra/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
