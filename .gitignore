@@ -1,2 +1,10 @@
 node_modules/
 config/keys-dev.js
+Chapter 6/Blobstorage/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
+Chapter 7/modules/dev/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
+Chapter 7/modules/prod/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
+Chapter 7/modules/test/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
+Chapter 7/OrganizedByTFVars/infra/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
+Chapter 7/terragrunt/appservice/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
+Chapter 7/workspaces/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
+Chapter 8/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.92.0/windows_amd64/terraform-provider-azurerm_v2.92.0_x5.exe
