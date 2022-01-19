@@ -9,3 +9,6 @@ az storage account create --name terraformstateaztraining --resource-group terra
 
 # Creating Storage Account container
 az storage container create -n terraformstate --account-name terraformstateaztraining
+
+# Retriving azure blob storage key
+az storage account keys list --account-name terraformstateaztraining --resource-group terraformstate
