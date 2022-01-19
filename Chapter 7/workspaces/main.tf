@@ -12,7 +12,7 @@ provider "azurerm" {
 }
 
 variable "location"{
-    type = "string"
+    type = string
     default = "brazilsouth"
 }
 
