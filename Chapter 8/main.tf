@@ -19,3 +19,7 @@ resource "azurerm_virtual_network" "vnet"{
         "environment" = "tests"
     }
 }
+
+resource "azurerm_network_security_group" "nsg" {
+  
+}
