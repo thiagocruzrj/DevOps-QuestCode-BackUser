@@ -7,3 +7,8 @@ remote_state {
       key = "7zG83TsWzO+H1TpqUBkX8KPDhRV8KCiSeE13fo1xb6wn5sBHbZEPmV6GuwankoUETLO4duVWVHikvMUxeLofqQ=="
     }
 }
+
+inputs = {
+    location = "brazilsouth"
+    rg = "rg-terragrunt"
+}
