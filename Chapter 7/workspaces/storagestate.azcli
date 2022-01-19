@@ -1,0 +1,11 @@
+# Login on azure
+az login
+
+# Creating resource group to Remote State
+az group create --location brazilsouth --name terraformstate
+
+# Creating the storage account
+az storage account create --name terraformstateaztraining --resource-group terraformstate --location brazilsouth --sku Standard_LRS
+
+# Creating Storage Account container
+az storage container create -n terraformstate --account-name terraformstateaztraining
