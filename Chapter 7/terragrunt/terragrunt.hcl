@@ -10,5 +10,5 @@ remote_state {
 
 inputs = {
     location = "brazilsouth"
-    rg = "rg-terragrunt"
+    rg = "terraformstate"
 }
