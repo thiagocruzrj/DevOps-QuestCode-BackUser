@@ -26,7 +26,23 @@ resource "azurerm_key_vault" "keyvault" {
 }
 
 resource "azurerm_key_vault_secret" "secret" {
+  name            = "secret-terraform"
+  value           = "mysecret@12345"
+  key_vault_id    = azurerm_key_vault.keyvault.id
+  expiration_date = "2022-12-31T00:00:00Z"
+}
+
+data "azurerm_key_vault_secret" "getsecret" {
   name         = "secret-terraform"
-  value        = "mysecret@12345"
   key_vault_id = azurerm_key_vault.keyvault.id
+}
+
+output "secret_value" {
+  value = data.azurerm_key_vault_secret.getsecret.value
+  sensitive = true
+}
+
+output "keyvault_url" {
+  value = azurerm_key_vault.keyvault.vault_uri
+  sensitive = true
 }
