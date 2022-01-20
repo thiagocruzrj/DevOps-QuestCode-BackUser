@@ -24,3 +24,9 @@ resource "azurerm_key_vault" "keyvault" {
     certificate_permissions = [ "list" ]
   }
 }
+
+resource "azurerm_key_vault_secret" "secret"{
+    name = "secret-terraform"
+    value = "mysecret@12345"
+    key_vault_id = azurerm_key_vault.keyvault.id
+}
