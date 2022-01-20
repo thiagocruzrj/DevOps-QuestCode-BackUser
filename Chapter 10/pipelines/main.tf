@@ -7,13 +7,13 @@ provider "azurerm"{
 }
 
 resource "azurerm_resource_group" "rg"{
-    name = "rg-terraform-pipeline"
+    name = "rg-terraform-pipeline-${terraform.workspace}"
     location = var.location
     tags = var.tags
 }
 
 resource "azurerm_app_service_plan" "plan"{
-    name = "appplan-azpipeline"
+    name = "appplan-azpipeline-${terraform.workspace}"
     location = var.location
     tags = var.tags
     resource_group_name = azurerm_resource_group.rg.name
@@ -24,7 +24,7 @@ resource "azurerm_app_service_plan" "plan"{
 }
 
 resource "azurerm_app_service" "appservice" {
-    name = "azpipeline-tftreinamento"
+    name = "azpipeline-tftreinamento-${terraform.workspace}"
     location = var.location
     tags = var.tags
     resource_group_name = azurerm_resource_group.rg.name
