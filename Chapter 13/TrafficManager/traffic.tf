@@ -26,3 +26,39 @@ resource "azurerm_traffic_manager_profile" "trafficManager" {
     tolerated_number_of_failures = 4
   }
 }
+
+// Brazilian service plan
+resource "azurerm_app_service_plan" "planbr"{
+    name = "appplanbr"
+    location = "brazilsouth"
+    resource_group_name = azurerm_resource_group.rg.name
+
+    sku {
+        tier = "Standard"
+        size = "S1"
+    }
+}
+
+// USA service plan
+resource "azure_app_service_plan" "planus"{
+    app = "appplanus"
+    location = "eastus"
+        resource_group_name = azurerm_resource_group.rg.name
+
+    sku {
+        tier = "Standard"
+        size = "S1"
+    }
+}
+
+// Around the world service plan
+resource "azure_app_service_plan" "planworld"{
+    app = "appplanworld"
+    location = "uksouth"
+        resource_group_name = azurerm_resource_group.rg.name
+
+    sku {
+        tier = "Standard"
+        size = "S1"
+    }
+}
