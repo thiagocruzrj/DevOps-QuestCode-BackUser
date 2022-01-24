@@ -39,6 +39,13 @@ resource "azurerm_app_service_plan" "planbr"{
     }
 }
 
+resource "azurerm_app_service" "appservicebr"{
+    name = "appservicetfbr"
+    location = azurerm_app_service_plan.planbr.location
+    app_service_plan_id = azurerm_app_service.appservicebr.id
+    resource_group_name = azurerm_resource_group.rg.name
+}
+
 // USA service plan
 resource "azure_app_service_plan" "planus"{
     app = "appplanus"
@@ -51,6 +58,13 @@ resource "azure_app_service_plan" "planus"{
     }
 }
 
+resource "azurerm_app_service" "appserviceus"{
+    name = "appservicetfus"
+    location = azurerm_app_service_plan.planus.location
+    app_service_plan_id = azurerm_app_service.appplanus.id
+    resource_group_name = azurerm_resource_group.rg.name
+}
+
 // Around the world service plan
 resource "azure_app_service_plan" "planworld"{
     app = "appplanworld"
@@ -61,4 +75,11 @@ resource "azure_app_service_plan" "planworld"{
         tier = "Standard"
         size = "S1"
     }
+}
+
+resource "azurerm_app_service" "appserviceworld"{
+    name = "appservicetfworld"
+    location = azurerm_app_service_plan.planworld.location
+    app_service_plan_id = azurerm_app_service.appserviceus.id
+    resource_group_name = azurerm_resource_group.rg.name
 }
