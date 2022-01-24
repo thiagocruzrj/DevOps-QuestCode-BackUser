@@ -47,10 +47,10 @@ resource "azurerm_app_service" "appservicebr"{
 }
 
 // USA service plan
-resource "azure_app_service_plan" "planus"{
-    app = "appplanus"
+resource "azurerm_app_service_plan" "planus"{
+    name = "appplanus"
     location = "eastus"
-        resource_group_name = azurerm_resource_group.rg.name
+    resource_group_name = azurerm_resource_group.rg.name
 
     sku {
         tier = "Standard"
@@ -61,15 +61,15 @@ resource "azure_app_service_plan" "planus"{
 resource "azurerm_app_service" "appserviceus"{
     name = "appservicetfus"
     location = azurerm_app_service_plan.planus.location
-    app_service_plan_id = azurerm_app_service.appplanus.id
+    app_service_plan_id = azurerm_app_service.appserviceus.id
     resource_group_name = azurerm_resource_group.rg.name
 }
 
 // Around the world service plan
-resource "azure_app_service_plan" "planworld"{
-    app = "appplanworld"
+resource "azurerm_app_service_plan" "planworld"{
+    name = "appplanworld"
     location = "uksouth"
-        resource_group_name = azurerm_resource_group.rg.name
+    resource_group_name = azurerm_resource_group.rg.name
 
     sku {
         tier = "Standard"
