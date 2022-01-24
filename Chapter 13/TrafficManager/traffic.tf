@@ -85,31 +85,31 @@ resource "azurerm_app_service" "appserviceworld"{
 }
 
 // Endpoints
-resource "azurerm_traffic_manager_profile" "cdnendpointbr"{
+resource "azurerm_traffic_manager_endpoint" "cdnendpointbr"{
     name = "trafficbr"
     resource_group_name = azurerm_resource_group.rg.name
-    profile_name = azurerm_traffic_manager_profile.trafficprofile.name
+    profile_name = azurerm_traffic_manager_profile.trafficManager.name
     target_resource_id = azurerm_app_service.appservicebr.id
     type = "azureEndpoints"
     weight = 100
     geo_mappings = ["BR"]
 }
 
-resource "azurerm_traffic_manager_profile" "cdnendpointus"{
+resource "azurerm_traffic_manager_endpoint" "cdnendpointus"{
     name = "trafficus"
     resource_group_name = azurerm_resource_group.rg.name
-    profile_name = azurerm_traffic_manager_profile.trafficprofile.name
-    target_resource_id = azurerm_app_service.appservicetfus.id
+    profile_name = azurerm_traffic_manager_profile.trafficManager.name
+    target_resource_id = azurerm_app_service.appserviceus.id
     type = "azureEndpoints"
     weight = 101
     geo_mappings = ["US"]
 }
 
-resource "azurerm_traffic_manager_profile" "cdnendpointworld"{
+resource "azurerm_traffic_manager_endpoint" "cdnendpointworld"{
     name = "trafficworld"
     resource_group_name = azurerm_resource_group.rg.name
-    profile_name = azurerm_traffic_manager_profile.trafficprofile.name
-    target_resource_id = azurerm_app_service.appservicetfworld.id
+    profile_name = azurerm_traffic_manager_profile.trafficManager.name
+    target_resource_id = azurerm_app_service.appserviceworld.id
     type = "azureEndpoints"
     weight = 102
     geo_mappings = ["WORLD"]
