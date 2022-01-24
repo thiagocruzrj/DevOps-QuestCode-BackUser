@@ -83,3 +83,34 @@ resource "azurerm_app_service" "appserviceworld"{
     app_service_plan_id = azurerm_app_service.appserviceus.id
     resource_group_name = azurerm_resource_group.rg.name
 }
+
+// Endpoints
+resource "azurerm_traffic_manager_profile" "cdnendpointbr"{
+    name = "trafficbr"
+    resource_group_name = azurerm_resource_group.rg.name
+    profile_name = azurerm_traffic_manager_profile.trafficprofile.name
+    target_resource_id = azurerm_app_service.appservicebr.id
+    type = "azureEndpoints"
+    weight = 100
+    geo_mappings = ["BR"]
+}
+
+resource "azurerm_traffic_manager_profile" "cdnendpointus"{
+    name = "trafficus"
+    resource_group_name = azurerm_resource_group.rg.name
+    profile_name = azurerm_traffic_manager_profile.trafficprofile.name
+    target_resource_id = azurerm_app_service.appservicetfus.id
+    type = "azureEndpoints"
+    weight = 101
+    geo_mappings = ["US"]
+}
+
+resource "azurerm_traffic_manager_profile" "cdnendpointworld"{
+    name = "trafficworld"
+    resource_group_name = azurerm_resource_group.rg.name
+    profile_name = azurerm_traffic_manager_profile.trafficprofile.name
+    target_resource_id = azurerm_app_service.appservicetfworld.id
+    type = "azureEndpoints"
+    weight = 102
+    geo_mappings = ["WORLD"]
+}
