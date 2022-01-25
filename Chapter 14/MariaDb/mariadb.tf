@@ -14,11 +14,19 @@ resource "azurerm_mariadb_server" "mariadbserver" {
 
   sku_name                     = "B_Gen5_2"
   storage_mb                   = 51200
-  backup_retention_days         = 7
+  backup_retention_days        = 7
   geo_redundant_backup_enabled = false
 
   administrator_login          = "adminmariadb"
   administrator_login_password = "thisIsNotMyP@$$word"
   version                      = "10.2"
   ssl_enforcement_enabled      = false
+}
+
+resource "azurerm_mariadb_database" "mariadb" {
+  name                = "mariadbterraform"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mariadb_server.mariadbserver.name
+  charset             = "utf8"
+  collation           = "utf8_general_ci"
 }
