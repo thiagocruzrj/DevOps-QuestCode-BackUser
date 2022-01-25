@@ -78,3 +78,27 @@ resource "azurerm_subnet_network_security_group_association" "nsgassociation" {
   subnet_id                 = azurerm_subnet.subnet.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
+
+resource "azurerm_windows_virtual_machine" "vmwin" {
+  name                = "vmwinserver"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+
+  size           = "Standard_B1ls"
+  admin_username = "adminuser"
+  admin_password = "myP@assword68765"
+
+  network_interface_ids = [azurerm_network_interface.nic.id]
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2016-Datacenter"
+    version   = "latest"
+  }
+}
