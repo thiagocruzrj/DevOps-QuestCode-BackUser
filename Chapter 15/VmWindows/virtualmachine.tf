@@ -73,3 +73,8 @@ resource "azurerm_network_security_rule" "rules_free_entry" {
   destination_address_prefix  = "*"
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
+
+resource "azurerm_subnet_network_security_group_association" "nsgassociation" {
+  subnet_id                 = azurerm_subnet.subnet.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
