@@ -48,3 +48,28 @@ resource "azurerm_network_security_group" "nsg" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
+
+variable "entryrules" {
+  type = map(any)
+  default = {
+    101 = 80
+    102 = 443
+    103 = 3389
+    102 = 22
+  }
+}
+
+resource "azurerm_network_security_rule" "rules_free_entry" {
+  for_each                    = var.entryrules
+  resource_group_name         = azurerm_resource_group.rg.name
+  name                        = "entry_door_${each.value}"
+  priority                    = each.key
+  direction                   = "Inbound"
+  access                      = "Allow"
+  source_port_range           = "*"
+  protocol                    = "Tcp"
+  destination_port_range      = each.value
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  network_security_group_name = azurerm_network_security_group.nsg.name
+}
