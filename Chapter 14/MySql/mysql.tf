@@ -34,3 +34,25 @@ resource "azurerm_mysql_database" "mysqldb" {
   charset             = "utf8"
   collation           = "utf8_general_ci"
 }
+
+data "http" "ip_address" {
+  url = "https://api.ipify.org"
+  request_headers = {
+    Accept = "text/plain"
+  }
+}
+resource "azurerm_mysql_firewall_rule" "myip" {
+  name                = "personalip"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mysql_server.mysqlserver.name
+  start_ip_address    = data.http.ip_address.body
+  end_ip_address      = data.http.ip_address.body
+}
+
+resource "azurerm_mysql_firewall_rule" "allow-azservices" {
+  name                = "allow-azure-services"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mysql_server.mysqlserver.name
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "0.0.0.0"
+}
