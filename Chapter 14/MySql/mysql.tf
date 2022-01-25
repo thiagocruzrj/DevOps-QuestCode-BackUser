@@ -26,3 +26,11 @@ resource "azurerm_mysql_server" "mysqlserver" {
   public_network_access_enabled     = true
   auto_grow_enabled                 = true
 }
+
+resource "azurerm_mysql_database" "mysqldb" {
+  name                = "mysqldb-terraform"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mysql_server.mysqlserver.name
+  charset             = "utf8"
+  collation           = "utf8_general_ci"
+}
